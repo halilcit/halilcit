@@ -112,7 +112,7 @@ Aynı zamanda, Cisco teknolojilerine odaklanarak Network Operation Center uzman�
 
 ## İletişim Bilgileri
 
-- LinkedIn: [LinkedIn Profil Linki](https://www.linkedin.com/in/halilc)
+- LinkedIn: [LinkedIn Profil Linki](https://www.linkedin.com/in/halilcit)
 - GitHub: [GitHub Profil Linki](https://github.com/halilcit)
 - Credly: [Credly Profil Linki](https://www.credly.com/users/halilcit/badges)
 - E-posta: [E-posta Gönder](mailto:halilcit@gmail.com)
