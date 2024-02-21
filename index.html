@@ -3,46 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GitHub Pages Example</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f0f0f0;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        .container {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        h1, p {
-            text-align: center;
-        }
-    </style>
+    <title>Professional Website</title>
+    <link rel="stylesheet" href="styles.css"> <!-- CSS dosyası -->
 </head>
 <body>
     <header>
-        <h1>Welcome to My GitHub Pages Example</h1>
+        <div class="container">
+            <h1>Welcome to My Professional Website</h1>
+            <button class="menu-toggle">Toggle Menu</button>
+        </div>
     </header>
-    <div class="container">
-        <h2>About Me</h2>
-        <p>Hello, I'm [Your Name] and this is my example GitHub Pages site. Feel free to explore!</p>
-        <h2>Recent Projects</h2>
-        <ul>
-            <li><a href="#">Project 1</a></li>
-            <li><a href="#">Project 2</a></li>
-            <li><a href="#">Project 3</a></li>
-        </ul>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="main-content">
+        <div class="container">
+            <section id="about">
+                <h2>About Me</h2>
+                <p>Hello, I'm [Your Name] and this is my professional website. Here you can find information about me and my services.</p>
+            </section>
+            <section id="services">
+                <h2>Services</h2>
+                <ul>
+                    <li>Web Development</li>
+                    <li>Graphic Design</li>
+                    <li>Digital Marketing</li>
+                </ul>
+            </section>
+            <section id="contact">
+                <h2>Contact Me</h2>
+                <form id="contact-form">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required><br><br>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required><br><br>
+                    <label for="message">Message:</label><br>
+                    <textarea id="message" name="message" rows="4" required></textarea><br><br>
+                    <input type="submit" value="Submit">
+                </form>
+                <div id="confirmation-message"></div>
+            </section>
+        </div>
     </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Professional Website. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script> <!-- JavaScript dosyası -->
 </body>
 </html>
