@@ -2,9 +2,9 @@
 
 ## Hakkımda
 
-Network Operation Center uzmanıyım ve İzmir Katip Çelebi Üniversitesi'nde yazılım mühendisliği yüksek lisans öğrencisi olarak eğitimime devam ediyorum. Yazılım geliştirme ve en son teknolojilere odaklanarak kariyer yolculuğumu sürdürmekteyim.
+Network Operation Center Uzmanıyım ve İzmir Katip Çelebi Üniversitesi'nde Yazılım Mühendisliği Yüksek Lisans öğrencisi olarak eğitimime devam ediyorum. Yazılım geliştirme, Yapay Zeka ve en son teknolojilere odaklanarak kariyer yolculuğumu sürdürmekteyim.
 
-Aynı zamanda, IP, TCP/IP ve Cisco teknolojilerine odaklanarak Network Operation Center uzmanı olarak beceri kazandım. Bu alanda ve eğitim yolculuğunda edindiğim deneyimler, teknolojiye olan tutkumu ve profesyonel gelişimimi güçlendirdi.
+Aynı zamanda, Cisco teknolojilerine odaklanarak Network Operation Center uzmanı olarak beceri kazandım. Bu alanda ve eğitim yolculuğunda edindiğim deneyimler, teknolojiye olan tutkumu ve profesyonel gelişimimi güçlendirdi.
 
 ## Eğitim
 
@@ -23,14 +23,11 @@ Aynı zamanda, IP, TCP/IP ve Cisco teknolojilerine odaklanarak Network Operation
 - Veri Analizi ve Görselleştirme
 - Makine Öğrenimi
 - Yazılım Testi
-- Süreç Otomasyonu
-- Sorun Çözme
-- Müşteri Deneyimi
 - Yazılım Geliştirme
+- Network
 - Kablosuz Ağ İletişimi
 - Ağ Mimarisi
 - Ağ Sorunlarını Giderme
-- Kurumsal İletişim
 - DHCP
 - DNS
 - HTML
@@ -44,7 +41,6 @@ Aynı zamanda, IP, TCP/IP ve Cisco teknolojilerine odaklanarak Network Operation
 - SQL
 - Linux
 - İşletim Sistemleri
-- Network
 - Siber Güvenlik
 - Etik Bilgisayar Korsanlığı
 
@@ -52,26 +48,31 @@ Aynı zamanda, IP, TCP/IP ve Cisco teknolojilerine odaklanarak Network Operation
 # Sertifikalar
 
 ## Cisco
+### Network
 - CCNP: Core Networking
-- Introduction to Data Science
-- Networking Academy Learn-A-Thon 2023
-- Network Support and Security
-- Network Technician Career Path
-- Computer Hardware Basics
-- Junior Cybersecurity Analyst Career Path
-- Networking Basics
-- Network Defense
-- Python Essentials 2
-- Python Essentials 1
-- Networking Essentials
-- Network Security
-- Endpoint Security
-- Cyber Threat Management
+- CCNA
 - CCNA: Enterprise Networking, Security, and Automation
 - CCNA: Introduction to Networks
 - CCNA: Switching, Routing, and Wireless Essentials
+- Network Technician Career Path
+- Networking Academy Learn-A-Thon 2023
+- Network Support and Security
+- Computer Hardware Basics
+- Networking Basics
+- Networking Essentials
+### Security
+- Junior Cybersecurity Analyst Career Path
+- Cyber Threat Management
 - Cybersecurity Essentials
 - CyberOps Associate
+- Network Security
+- Endpoint Security
+- Network Defense
+### Python
+- Python Essentials 1
+- Python Essentials 2
+### Introduction
+- Introduction to Data Science
 - Introduction to IoT
 - Introduction to Packet Tracer
 
@@ -83,16 +84,24 @@ Aynı zamanda, IP, TCP/IP ve Cisco teknolojilerine odaklanarak Network Operation
 
 ## Turkcell Geleceği Yazanlar
 - Basic Linux 401
+  
+## Ostim Teknik Üniversitesi
+- Siber Güvenlik Uzmanlığı
+- Siber Güvenlik Analisti
+- CCNA
+- CyberOps
+- Linux Sistem Yöneticiliği 
+- Beyaz Şapkalı Hacker v11
+- ISO 27001
+- KVKK
+  
 
 ## Isparta Uygulamalı Bilimler Üniversitesi
 - Basic Cyber Security Training
 
 ## Bilişim Academy
-- Introduction to C # Programming
+- C# ile Programlamaya Giriş"
 
-## Cisco Networking Academy
-- Mobility Fundamentals Course
-- Cybersecurity Course
 
 ## Millî Eğitim Bakanlığı
 - Bilgisayar İşletmenliği (Operatörlüğü)
