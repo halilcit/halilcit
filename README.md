@@ -2,9 +2,9 @@
 
 ## Hakkımda
 
-Network Operation Center uzmanıyım ve İzmir Katip Çelebi Üniversitesi'nde yazılım mühendisliği yüksek lisans öğrencisi olarak eğitimime devam ediyorum. Yazılım geliştirme ve en son teknolojilere odaklanarak akademik yolculuğumu sürdürmekteyim.
+Network Operation Center uzmanıyım ve İzmir Katip Çelebi Üniversitesi'nde yazılım mühendisliği yüksek lisans öğrencisi olarak eğitimime devam ediyorum. Yazılım geliştirme ve en son teknolojilere odaklanarak kariyer yolculuğumu sürdürmekteyim.
 
-Aynı zamanda, IP, TCP/IP ve Cisco teknolojilerine odaklanarak Network Operation Center uzmanı olarak beceri kazandım. Bu alanda edindiğim deneyimler, teknolojiye olan tutkumu ve profesyonel gelişimimi güçlendirdi.
+Aynı zamanda, IP, TCP/IP ve Cisco teknolojilerine odaklanarak Network Operation Center uzmanı olarak beceri kazandım. Bu alanda ve eğitim yolculuğunda edindiğim deneyimler, teknolojiye olan tutkumu ve profesyonel gelişimimi güçlendirdi.
 
 ## Eğitim
 
