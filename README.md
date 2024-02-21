@@ -1,4 +1,4 @@
-# Merhaba, Benim Adım Halil Çit
+# Merhaba, Benim Adım [Halil Çit]
 
 ## Hakkımda
 
@@ -114,4 +114,5 @@ Aynı zamanda, Cisco teknolojilerine odaklanarak Network Operation Center uzman�
 
 - LinkedIn: [LinkedIn Profil Linki](https://www.linkedin.com/in/halilc)
 - GitHub: [GitHub Profil Linki](https://github.com/halilcit)
+- Credly: [Credly Profil Linki](https://www.credly.com/users/halilcit/badges)
 - E-posta: halilcit@gmail.com
