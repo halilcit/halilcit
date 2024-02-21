@@ -1,4 +1,4 @@
-# Merhaba, Benim Adım Halil Çit
+# Merhaba, Benim Halil Çit
 
 ## Hakkımda
 
