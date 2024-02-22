@@ -98,6 +98,7 @@
             border: none;
             border-radius: 5px;
             outline: none;
+            display: none; /* Initially hidden */
         }
 
         #showMatchedListButton:hover {
@@ -207,6 +208,11 @@
             var celebrationMessage = document.getElementById("celebrationMessage");
             celebrationMessage.textContent = "Tebrikler! " + maleProfile.name + " ve " + femaleProfile.name + " eşleştiniz.";
             document.getElementById("celebrationModal").style.display = "block";
+
+            // Tüm eşleşmeler tamamlandığında "Tüm Eşleşmeleri Göster" butonunu görünür yap
+            if (matchedList.length === maleProfiles.length) {
+                document.getElementById("showMatchedListButton").style.display = "block";
+            }
         }
 
         // Kutlama modalını kapat
