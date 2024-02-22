@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #f0f0f0;
+        }
+
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .profile-image:hover {
+            transform: scale(1.1);
+        }
+
+        #celebrationModal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+        }
+
+        #celebrationModalContent {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        #celebrationModalClose {
+            color: #aaaaaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        #celebrationModalClose:hover,
+        #celebrationModalClose:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        #celebrationMessage {
+            font-size: 18px;
+            color: green;
+            margin-bottom: 20px;
+        }
+
+        #matchedListContainer {
+            margin-top: 20px;
+            font-size: 16px;
+            text-align: left;
+            display: none;
+        }
+
+        #matchedList {
+            margin-top: 10px;
+        }
+
+        #showMatchedListButton {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        #showMatchedListButton:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <div id="celebrationModal">
+        <div id="celebrationModalContent">
+            <span id="celebrationModalClose" onclick="closeCelebrationModal()">&times;</span>
+            <p id="celebrationMessage"></p>
+        </div>
+    </div>
+
+    <div id="matchedListContainer">
+        <h2>Eşleşmeler</h2>
+        <ul id="matchedList"></ul>
+    </div>
+
+    <button id="showMatchedListButton" onclick="showMatchedList()">Tüm Eşleşmeleri Göster</button>
+
+    <script>
+        var maleProfiles = [
+            { name: "AHMET", imageUrl: "https://via.placeholder.com/150?text=AHMET" },
+            { name: "MEHMET", imageUrl: "https://via.placeholder.com/150?text=MEHMET" },
+            { name: "SALİH", imageUrl: "https://via.placeholder.com/150?text=SALİH" },
+            { name: "HAKAN", imageUrl: "https://via.placeholder.com/150?text=HAKAN" },
+            { name: "SALİM", imageUrl: "https://via.placeholder.com/150?text=SALİM" },
+            { name: "SERHAT", imageUrl: "https://via.placeholder.com/150?text=SERHAT" },
+            { name: "HASAN", imageUrl: "https://via.placeholder.com/150?text=HASAN" },
+            { name: "ERDİ", imageUrl: "https://via.placeholder.com/150?text=ERDİ" },
+            { name: "MURAT", imageUrl: "https://via.placeholder.com/150?text=MURAT" },
+            { name: "SONER", imageUrl: "https://via.placeholder.com/150?text=SONER" }
+        ];
+
+        var femaleProfiles = [
+            { name: "AYŞE", imageUrl: "https://via.placeholder.com/150?text=AYŞE" },
+            { name: "KÜBRA", imageUrl: "https://via.placeholder.com/150?text=KÜBRA" },
+            { name: "ELİF", imageUrl: "https://via.placeholder.com/150?text=ELİF" },
+            { name: "HANDAN", imageUrl: "https://via.placeholder.com/150?text=HANDAN" },
+            { name: "SEVGİ", imageUrl: "https://via.placeholder.com/150?text=SEVGİ" },
+            { name: "BUSE", imageUrl: "https://via.placeholder.com/150?text=BUSE" },
+            { name: "SEDA", imageUrl: "https://via.placeholder.com/150?text=SEDA" },
+            { name: "TUĞBA", imageUrl: "https://via.placeholder.com/150?text=TUĞBA" },
+            { name: "NİDA", imageUrl: "https://via.placeholder.com/150?text=NİDA" },
+            { name: "CEYDA", imageUrl: "https://via.placeholder.com/150?text=CEYDA" }
+        ];
+
+        var usedMaleNames = [];
+        var usedFemaleNames = [];
+        var matchedList = [];
+
+        // Erkek profil resimlerini oluştur
+        var container = document.getElementById("container");
+        maleProfiles.forEach(function(profile) {
+            var profileDiv = document.createElement("div");
+            profileDiv.className = "profile-item";
+            var profileImage = document.createElement("img");
+            profileImage.src = profile.imageUrl;
+            profileImage.className = "profile-image";
+            profileImage.onclick = function() {
+                assignRandomFemale(profile);
+            };
+            var profileName = document.createElement("p");
+            profileName.textContent = profile.name;
+            profileDiv.appendChild(profileImage);
+            profileDiv.appendChild(profileName);
+            container.appendChild(profileDiv);
+        });
+
+        // Rastgele bir kadın ata ve kutlama modalını göster
+        function assignRandomFemale(maleProfile) {
+            if (femaleProfiles.length === 0) {
+                alert("Tüm kadın profilleri seçildi!");
+                return;
+            }
+
+            // Kullanılan bir kişi tekrar seçilmesin diye kontrol yapalım
+            if (usedMaleNames.includes(maleProfile.name)) {
+                alert("Bu kişi zaten eşleşti!");
+                return;
+            }
+
+            var randomIndex = Math.floor(Math.random() * femaleProfiles.length);
+            var femaleProfile = femaleProfiles[randomIndex];
+
+            // Kullanılan bir kadını tekrar seçmemek için kontrol yapalım
+            if (usedFemaleNames.includes(femaleProfile.name)) {
+                assignRandomFemale(maleProfile); // Yeniden çağır
+                return;
+            }
+
+            usedMaleNames.push(maleProfile.name); // Kullanılan erkek ismini listeye ekle
+            usedFemaleNames.push(femaleProfile.name); // Kullanılan kadın ismini listeye ekle
+            matchedList.push(maleProfile.name + " ve " + femaleProfile.name); // Eşleşmeyi listeye ekle
+
+            var indexToRemove = femaleProfiles.indexOf(femaleProfile);
+            femaleProfiles.splice(indexToRemove, 1);
+            showCelebrationModal(maleProfile, femaleProfile);
+        }
+
+        // Kutlama modalını göster
+        function showCelebrationModal(maleProfile, femaleProfile) {
+            var celebrationMessage = document.getElementById("celebrationMessage");
+            celebrationMessage.textContent = "Tebrikler! " + maleProfile.name + " ve " + femaleProfile.name + " eşleştiniz.";
+            document.getElementById("celebrationModal").style.display = "block";
+        }
+
+        // Kutlama modalını kapat
+        function closeCelebrationModal() {
+            document.getElementById("celebrationModal").style.display = "none";
+        }
+
+        // Tüm eşleşmeleri göster
+        function showMatchedList() {
+            var matchedListContainer = document.getElementById("matchedListContainer");
+            var matchedListElement = document.getElementById("matchedList");
+            matchedListElement.innerHTML = ""; // Önceki listeyi temizle
+
+            if (matchedList.length === 0) {
+                matchedListElement.textContent = "Henüz eşleşme yapılmadı.";
+            } else {
+                matchedList.forEach(function(match) {
+                    var listItem = document.createElement("li");
+                    listItem.textContent = match;
+                    matchedListElement.appendChild(listItem);
+                });
+            }
+
+            matchedListContainer.style.display = "block";
+        }
+    </script>
+</body>
+</html>
