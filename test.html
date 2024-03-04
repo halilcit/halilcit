@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Date App</title>
+    <title>TEST App</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,12 +23,17 @@
         }
 
         .profile-image {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            border-radius: 40%;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
         }
+		
+		.profile-item.selected {
+			filter: brightness(70%);
+		}
+
 
         .profile-image:hover {
             transform: scale(1.1);
@@ -124,119 +129,161 @@
     <button id="showMatchedListButton" onclick="showMatchedList()">Tüm Eşleşmeleri Göster</button>
 
     <script>
-        var maleProfiles = [
-            { name: "AHMET", imageUrl: "https://via.placeholder.com/150?text=AHMET" },
-            { name: "MEHMET", imageUrl: "https://via.placeholder.com/150?text=MEHMET" },
-            { name: "SALİH", imageUrl: "https://via.placeholder.com/150?text=SALİH" },
-            { name: "HAKAN", imageUrl: "https://via.placeholder.com/150?text=HAKAN" },
-            { name: "SALİM", imageUrl: "https://via.placeholder.com/150?text=SALİM" },
-            { name: "SERHAT", imageUrl: "https://via.placeholder.com/150?text=SERHAT" },
-            { name: "HASAN", imageUrl: "https://via.placeholder.com/150?text=HASAN" },
-            { name: "ERDİ", imageUrl: "https://via.placeholder.com/150?text=ERDİ" },
-            { name: "MURAT", imageUrl: "https://via.placeholder.com/150?text=MURAT" },
-            { name: "SONER", imageUrl: "https://via.placeholder.com/150?text=SONER" }
+        var AProfiles = [
+            { name: "A", imageUrl: "https://via.placeholder.com/150?text=A" },
+            { name: "B", imageUrl: "https://via.placeholder.com/150?text=B" },
+            { name: "C", imageUrl: "https://via.placeholder.com/150?text=C" },
+            { name: "D", imageUrl: "https://via.placeholder.com/150?text=D" },
+            { name: "E", imageUrl: "https://via.placeholder.com/150?text=E" },
+            { name: "F", imageUrl: "https://via.placeholder.com/150?text=F" },
+            { name: "G", imageUrl: "https://via.placeholder.com/150?text=G" },
+            { name: "Ğ", imageUrl: "https://via.placeholder.com/150?text=Ğ" },
+            { name: "H", imageUrl: "https://via.placeholder.com/150?text=H" },
+			{ name: "I", imageUrl: "https://via.placeholder.com/150?text=I" },
+			{ name: "İ", imageUrl: "https://via.placeholder.com/150?text=İ" },
+            { name: "J", imageUrl: "https://via.placeholder.com/150?text=J" },
+            { name: "K", imageUrl: "https://via.placeholder.com/150?text=K" },
+			{ name: "L", imageUrl: "https://via.placeholder.com/150?text=L" },
+            { name: "M", imageUrl: "https://via.placeholder.com/150?text=M" },
+            { name: "N", imageUrl: "https://via.placeholder.com/150?text=N" },
+            { name: "O", imageUrl: "https://via.placeholder.com/150?text=O" },
+            { name: "Ö", imageUrl: "https://via.placeholder.com/150?text=Ö" },
+            { name: "P", imageUrl: "https://via.placeholder.com/150?text=P" },
+            { name: "R", imageUrl: "https://via.placeholder.com/150?text=R" },
+            { name: "S", imageUrl: "https://via.placeholder.com/150?text=S" },
+            { name: "T", imageUrl: "https://via.placeholder.com/150?text=T" },
+			{ name: "U", imageUrl: "https://via.placeholder.com/150?text=U" },
+            { name: "Ü", imageUrl: "https://via.placeholder.com/150?text=Ü" },
+            { name: "V", imageUrl: "https://via.placeholder.com/150?text=V" },
+			{ name: "Y", imageUrl: "https://via.placeholder.com/150?text=Y" },
+            { name: "Z", imageUrl: "https://via.placeholder.com/150?text=Z" },
+            { name: "X", imageUrl: "https://via.placeholder.com/150?text=X" },
+			{ name: "AA", imageUrl: "https://via.placeholder.com/150?text=AA" },
+            { name: "AB", imageUrl: "https://via.placeholder.com/150?text=AB" },
+            { name: "AC", imageUrl: "https://via.placeholder.com/150?text=AC" },
+            { name: "AD", imageUrl: "https://via.placeholder.com/150?text=AD" },
+            { name: "AE", imageUrl: "https://via.placeholder.com/150?text=AE" },
+            { name: "AF", imageUrl: "https://via.placeholder.com/150?text=AF" },
+            { name: "AG", imageUrl: "https://via.placeholder.com/150?text=AG" },
+            { name: "AĞ", imageUrl: "https://via.placeholder.com/150?text=AĞ" },
+            { name: "AH", imageUrl: "https://via.placeholder.com/150?text=AH" },
+			{ name: "AI", imageUrl: "https://via.placeholder.com/150?text=AI" },
+			{ name: "Aİ", imageUrl: "https://via.placeholder.com/150?text=Aİ" },
+            { name: "AJ", imageUrl: "https://via.placeholder.com/150?text=AJ" },
         ];
 
-        var femaleProfiles = [
-            { name: "AYŞE", imageUrl: "https://via.placeholder.com/150?text=AYŞE" },
-            { name: "KÜBRA", imageUrl: "https://via.placeholder.com/150?text=KÜBRA" },
-            { name: "ELİF", imageUrl: "https://via.placeholder.com/150?text=ELİF" },
-            { name: "HANDAN", imageUrl: "https://via.placeholder.com/150?text=HANDAN" },
-            { name: "SEVGİ", imageUrl: "https://via.placeholder.com/150?text=SEVGİ" },
-            { name: "BUSE", imageUrl: "https://via.placeholder.com/150?text=BUSE" },
-            { name: "SEDA", imageUrl: "https://via.placeholder.com/150?text=SEDA" },
-            { name: "TUĞBA", imageUrl: "https://via.placeholder.com/150?text=TUĞBA" },
-            { name: "NİDA", imageUrl: "https://via.placeholder.com/150?text=NİDA" },
-            { name: "CEYDA", imageUrl: "https://via.placeholder.com/150?text=CEYDA" }
+        var BProfiles = [
+            { name: "A", imageUrl: "https://via.placeholder.com/150?text=A" },
+            { name: "B", imageUrl: "https://via.placeholder.com/150?text=B" },
+            { name: "C", imageUrl: "https://via.placeholder.com/150?text=C" },
+            { name: "D", imageUrl: "https://via.placeholder.com/150?text=D" },
+            { name: "E", imageUrl: "https://via.placeholder.com/150?text=E" },
+            { name: "F", imageUrl: "https://via.placeholder.com/150?text=F" },
+            { name: "G", imageUrl: "https://via.placeholder.com/150?text=G" },
+            { name: "Ğ", imageUrl: "https://via.placeholder.com/150?text=Ğ" },
+            { name: "H", imageUrl: "https://via.placeholder.com/150?text=H" },
+			{ name: "I", imageUrl: "https://via.placeholder.com/150?text=I" },
+			{ name: "İ", imageUrl: "https://via.placeholder.com/150?text=İ" },
+            { name: "J", imageUrl: "https://via.placeholder.com/150?text=J" },
+            { name: "K", imageUrl: "https://via.placeholder.com/150?text=K" },
+			{ name: "L", imageUrl: "https://via.placeholder.com/150?text=L" },
+            { name: "M", imageUrl: "https://via.placeholder.com/150?text=M" },
+            { name: "N", imageUrl: "https://via.placeholder.com/150?text=N" },
+            { name: "O", imageUrl: "https://via.placeholder.com/150?text=O" },
+            { name: "Ö", imageUrl: "https://via.placeholder.com/150?text=Ö" },
+            { name: "P", imageUrl: "https://via.placeholder.com/150?text=P" },
+            { name: "R", imageUrl: "https://via.placeholder.com/150?text=R" },
+            { name: "S", imageUrl: "https://via.placeholder.com/150?text=S" },
+            { name: "T", imageUrl: "https://via.placeholder.com/150?text=T" },
+			{ name: "U", imageUrl: "https://via.placeholder.com/150?text=U" },
+            { name: "Ü", imageUrl: "https://via.placeholder.com/150?text=Ü" },
+            { name: "V", imageUrl: "https://via.placeholder.com/150?text=V" },
+			{ name: "Y", imageUrl: "https://via.placeholder.com/150?text=Y" },
+            { name: "Z", imageUrl: "https://via.placeholder.com/150?text=Z" },
+            { name: "X", imageUrl: "https://via.placeholder.com/150?text=X" },
+			{ name: "AA", imageUrl: "https://via.placeholder.com/150?text=AA" },
+            { name: "AB", imageUrl: "https://via.placeholder.com/150?text=AB" },
+            { name: "AC", imageUrl: "https://via.placeholder.com/150?text=AC" },
+            { name: "AD", imageUrl: "https://via.placeholder.com/150?text=AD" },
+            { name: "AE", imageUrl: "https://via.placeholder.com/150?text=AE" },
+            { name: "AF", imageUrl: "https://via.placeholder.com/150?text=AF" },
+            { name: "AG", imageUrl: "https://via.placeholder.com/150?text=AG" },
+            { name: "AĞ", imageUrl: "https://via.placeholder.com/150?text=AĞ" },
+            { name: "AH", imageUrl: "https://via.placeholder.com/150?text=AH" },
+			{ name: "AI", imageUrl: "https://via.placeholder.com/150?text=AI" },
+			{ name: "Aİ", imageUrl: "https://via.placeholder.com/150?text=Aİ" },
+            { name: "AJ", imageUrl: "https://via.placeholder.com/150?text=AJ" },
         ];
-
-        var usedMaleNames = [];
-        var usedFemaleNames = [];
+        var usedANames = [];
+        var usedBNames = [];
         var matchedList = [];
 
-        // Erkek profil resimlerini oluştur
-        var container = document.getElementById("container");
-        maleProfiles.forEach(function(profile) {
-            var profileDiv = document.createElement("div");
-            profileDiv.className = "profile-item";
-            var profileImage = document.createElement("img");
-            profileImage.src = profile.imageUrl;
-            profileImage.className = "profile-image";
-            profileImage.onclick = function() {
-                assignRandomFemale(profile);
-            };
-            var profileName = document.createElement("p");
-            profileName.textContent = profile.name;
-            profileDiv.appendChild(profileImage);
-            profileDiv.appendChild(profileName);
-            container.appendChild(profileDiv);
-        });
+        // A profil resimlerini oluştur
+		var container = document.getElementById("container");
+		AProfiles.forEach(function(profile) {
+			var profileDiv = document.createElement("div");
+			profileDiv.classList.add("profile-item");
+			profileDiv.dataset.name = profile.name;
+			var img = document.createElement("img");
+			img.src = profile.imageUrl;
+			img.alt = profile.name;
+			img.classList.add("profile-image");
+			img.onclick = function() {
+				selectProfile(this);
+			};
+			profileDiv.appendChild(img);
+			container.appendChild(profileDiv);
+		});
 
-        // Rastgele bir kadın ata ve kutlama modalını göster
-        function assignRandomFemale(maleProfile) {
-            if (femaleProfiles.length === 0) {
-                alert("Tüm kadın profilleri seçildi!");
-                return;
+        function selectProfile(element) {
+            var selectedName = element.alt;
+            if (!usedANames.includes(selectedName)) {
+                var selectedProfileDivs = document.querySelectorAll(".profile-item[data-name='" + selectedName + "']");
+                selectedProfileDivs.forEach(function(div) {
+                    div.classList.toggle("selected");
+                });
+                usedANames.push(selectedName);
+
+                // Find a matching profile from BProfiles
+                var randomIndex = Math.floor(Math.random() * BProfiles.length);
+                var matchedBProfile = BProfiles[randomIndex];
+                BProfiles.splice(randomIndex, 1);
+                usedBNames.push(matchedBProfile.name);
+
+                matchedList.push(selectedName + " <=> " + matchedBProfile.name);
+
+                if (BProfiles.length === 0) {
+                    document.getElementById("showMatchedListButton").style.display = "block";
+                }
+
+                // Show celebration message
+                var celebrationMessage = document.getElementById("celebrationMessage");
+                celebrationMessage.textContent = "Tebrikler! " + selectedName + " ve " + matchedBProfile.name + " eşleştiniz.";
+                document.getElementById("celebrationModal").style.display = "block";
             }
-
-            // Kullanılan bir kişi tekrar seçilmesin diye kontrol yapalım
-            if (usedMaleNames.includes(maleProfile.name)) {
-                alert("Bu kişi zaten eşleşti!");
-                return;
-            }
-
-            var randomIndex = Math.floor(Math.random() * femaleProfiles.length);
-            var femaleProfile = femaleProfiles[randomIndex];
-
-            // Kullanılan bir kadını tekrar seçmemek için kontrol yapalım
-            if (usedFemaleNames.includes(femaleProfile.name)) {
-                assignRandomFemale(maleProfile); // Yeniden çağır
-                return;
-            }
-
-            usedMaleNames.push(maleProfile.name); // Kullanılan erkek ismini listeye ekle
-            usedFemaleNames.push(femaleProfile.name); // Kullanılan kadın ismini listeye ekle
-            matchedList.push(maleProfile.name + " ve " + femaleProfile.name); // Eşleşmeyi listeye ekle
-
-            var indexToRemove = femaleProfiles.indexOf(femaleProfile);
-            femaleProfiles.splice(indexToRemove, 1);
-            showCelebrationModal(maleProfile, femaleProfile);
-        }
-
-        // Kutlama modalını göster
-        function showCelebrationModal(maleProfile, femaleProfile) {
-            var celebrationMessage = document.getElementById("celebrationMessage");
-            celebrationMessage.textContent = "Tebrikler! " + maleProfile.name + " ve " + femaleProfile.name + " eşleştiniz.";
-            document.getElementById("celebrationModal").style.display = "block";
-
-            // Tüm eşleşmeler tamamlandığında "Tüm Eşleşmeleri Göster" butonunu görünür yap
-            if (matchedList.length === maleProfiles.length) {
-                document.getElementById("showMatchedListButton").style.display = "block";
-            }
-        }
-
-        // Kutlama modalını kapat
-        function closeCelebrationModal() {
-            document.getElementById("celebrationModal").style.display = "none";
         }
 
         // Tüm eşleşmeleri göster
         function showMatchedList() {
             var matchedListContainer = document.getElementById("matchedListContainer");
             var matchedListElement = document.getElementById("matchedList");
-            matchedListElement.innerHTML = ""; // Önceki listeyi temizle
 
-            if (matchedList.length === 0) {
-                matchedListElement.textContent = "Henüz eşleşme yapılmadı.";
-            } else {
-                matchedList.forEach(function(match) {
-                    var listItem = document.createElement("li");
-                    listItem.textContent = match;
-                    matchedListElement.appendChild(listItem);
-                });
-            }
+            // Temizleme
+            matchedListElement.innerHTML = "";
+
+            // Eşleşmeleri listele
+            matchedList.forEach(function(item) {
+                var listItem = document.createElement("li");
+                listItem.textContent = item;
+                matchedListElement.appendChild(listItem);
+            });
 
             matchedListContainer.style.display = "block";
+        }
+
+        // Modal kapatma
+        function closeCelebrationModal() {
+            document.getElementById("celebrationModal").style.display = "none";
         }
     </script>
 </body>
