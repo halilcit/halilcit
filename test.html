@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TEST App</title>
+    <title>Kitap Tavsiye App</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,24 +19,23 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 25px;
         }
 
         .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 40%;
+            width: 100px;
+            height: 140px;
+            border-radius: 1%;
             cursor: pointer;
             transition: transform 0.3s ease-in-out;
         }
-		
-		.profile-item.selected {
-			filter: brightness(70%);
-		}
-
+        
+        .profile-item.selected {
+            filter: brightness(25%);
+        }
 
         .profile-image:hover {
-            transform: scale(1.1);
+            transform: scale(1.3);
         }
 
         #celebrationModal {
@@ -125,115 +124,134 @@
         <h2>Eşleşmeler</h2>
         <ul id="matchedList"></ul>
     </div>
-
     <button id="showMatchedListButton" onclick="showMatchedList()">Tüm Eşleşmeleri Göster</button>
 
     <script>
+        
         var AProfiles = [
-            { name: "A", imageUrl: "https://via.placeholder.com/150?text=A" },
-            { name: "B", imageUrl: "https://via.placeholder.com/150?text=B" },
-            { name: "C", imageUrl: "https://via.placeholder.com/150?text=C" },
-            { name: "D", imageUrl: "https://via.placeholder.com/150?text=D" },
-            { name: "E", imageUrl: "https://via.placeholder.com/150?text=E" },
-            { name: "F", imageUrl: "https://via.placeholder.com/150?text=F" },
-            { name: "G", imageUrl: "https://via.placeholder.com/150?text=G" },
-            { name: "Ğ", imageUrl: "https://via.placeholder.com/150?text=Ğ" },
-            { name: "H", imageUrl: "https://via.placeholder.com/150?text=H" },
-			{ name: "I", imageUrl: "https://via.placeholder.com/150?text=I" },
-			{ name: "İ", imageUrl: "https://via.placeholder.com/150?text=İ" },
-            { name: "J", imageUrl: "https://via.placeholder.com/150?text=J" },
-            { name: "K", imageUrl: "https://via.placeholder.com/150?text=K" },
-			{ name: "L", imageUrl: "https://via.placeholder.com/150?text=L" },
-            { name: "M", imageUrl: "https://via.placeholder.com/150?text=M" },
-            { name: "N", imageUrl: "https://via.placeholder.com/150?text=N" },
-            { name: "O", imageUrl: "https://via.placeholder.com/150?text=O" },
-            { name: "Ö", imageUrl: "https://via.placeholder.com/150?text=Ö" },
-            { name: "P", imageUrl: "https://via.placeholder.com/150?text=P" },
-            { name: "R", imageUrl: "https://via.placeholder.com/150?text=R" },
-            { name: "S", imageUrl: "https://via.placeholder.com/150?text=S" },
-            { name: "T", imageUrl: "https://via.placeholder.com/150?text=T" },
-			{ name: "U", imageUrl: "https://via.placeholder.com/150?text=U" },
-            { name: "Ü", imageUrl: "https://via.placeholder.com/150?text=Ü" },
-            { name: "V", imageUrl: "https://via.placeholder.com/150?text=V" },
-			{ name: "Y", imageUrl: "https://via.placeholder.com/150?text=Y" },
-            { name: "Z", imageUrl: "https://via.placeholder.com/150?text=Z" },
-            { name: "X", imageUrl: "https://via.placeholder.com/150?text=X" },
-			{ name: "AA", imageUrl: "https://via.placeholder.com/150?text=AA" },
-            { name: "AB", imageUrl: "https://via.placeholder.com/150?text=AB" },
-            { name: "AC", imageUrl: "https://via.placeholder.com/150?text=AC" },
-            { name: "AD", imageUrl: "https://via.placeholder.com/150?text=AD" },
-            { name: "AE", imageUrl: "https://via.placeholder.com/150?text=AE" },
-            { name: "AF", imageUrl: "https://via.placeholder.com/150?text=AF" },
-            { name: "AG", imageUrl: "https://via.placeholder.com/150?text=AG" },
-            { name: "AĞ", imageUrl: "https://via.placeholder.com/150?text=AĞ" },
-            { name: "AH", imageUrl: "https://via.placeholder.com/150?text=AH" },
-			{ name: "AI", imageUrl: "https://via.placeholder.com/150?text=AI" },
-			{ name: "Aİ", imageUrl: "https://via.placeholder.com/150?text=Aİ" },
-            { name: "AJ", imageUrl: "https://via.placeholder.com/150?text=AJ" },
+            { name: "Kürk Mantolu Madonna", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000058245-1.jpg"},
+            { name: "Şeker Portakalı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064031-1.jpg"},
+            { name: "Hayvan Çiftliği", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001903706001-1.jpg"},
+            { name: "Simyacı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064552-1.jpg"},
+            { name: "İçimizdeki Şeytan", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000058246-1.jpg"},
+            { name: "Kuyucaklı Yusuf", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001851635001-1.jpg"},
+            { name: "Fareler ve İnsanlar", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000411500-1.jpg"},
+            { name: "Bir Ömür Nasıl Yaşanır?", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001796150001-1.jpg"},
+            { name: "Tutunamayanlar", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000061424-1.jpg"},
+            { name: "Martı Jonathan Livingston", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000056587-1.jpg"},
+            { name: "Sırça Köşk", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001792257001-1.jpg"},
+            { name: "Nar Ağacı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000414329-1.jpg"},
+            { name: "Uçurtma Avcısı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000153127-1.jpg"},
+            { name: "Gazi Mustafa Kemal Atatürk", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001740229001-1.jpg"},
+            { name: "Puslu Kıtalar Atlası", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000061857-1.jpg"},
+            { name: "Güneşi Uyandıralım", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001788928001-1.jpg"},
+            { name: "İnce Memed 1", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000147918-1.jpg"},
+            { name: "Değirmen", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000142873-1.jpg"},
+            { name: "Veronika Ölmek İstiyor", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064829-1.jpg"},
+            { name: "Delifişek", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064402-1.jpg"},
+            { name: "Harry Potter ve Felsefe Taşı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000105599-1.jpg"},
+            { name: "Pal Sokağı Çocukları", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0002042077001-1.jpg"},
+            { name: "Fedailerin Kalesi: Alamut", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001946653001-1.jpg"},
+            { name: "Bu Ülke", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000061673-1.jpg"},
+            { name: "Uzun Hikaye", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000148613-1.jpg"},
+            { name: "Fahrenheit 451", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001750151001-1.jpg"},
+            { name: "Bülbülü Öldürmek", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001863920001-1.jpg"},
+            { name: "Gülün Adı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064192-1.jpg"},
+            { name: "Gül Yetiştiren Adam", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000228888-1.jpg"},
+            { name: "Harry Potter ve Sırlar Odası", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000105931-1.jpg"},
+            { name: "İyi Hissetmek", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000202710-1.jpg"},
+            { name: "Beş Şehir", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000027133-1.jpg"},
+            { name: "Nietzsche Ağladığında", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000065453-1.jpg"},
+            { name: "Huzur", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000067770-1.jpg"},
+            { name: "Görmek", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001715597001-1.jpg"},
+            { name: "İnsanın Anlam Arayışı", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000303230-1.jpg"},
+            { name: "Gece Yarısı Kütüphanesi", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001922926001-1.jpg"},
+            { name: "İnsan Olmak", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000129350-1.jpg"},
+            { name: "Ağrıdağı Efsanesi", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000147950-1.jpg"},
+            { name: "Yaşamak", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000690250-1.jpg"},
+            { name: "İnci", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000411501-1.jpg"},
+            { name: "Bir İdam Mahkumunun Son Günü", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001949364001-1.jpg"},
+            { name: "1984", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000064038-1.jpg"},
+            { name: "Saatleri Ayarlama Enstitüsü", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0002070059001-1.jpg"},
+            { name: "Otomatik Portakal", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001806049001-1.jpg"},
+            { name: "Yeraltından Notlar", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001923470001-1.jpg"},
+            { name: "Kraliçeyi Kurtarmak", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0000000151838-1.jpg"},
+            { name: "Suç ve Ceza", imageUrl: "https://i.dr.com.tr/cache/500x400-0/originals/0001788076001-1.jpg"}
         ];
 
         var BProfiles = [
-            { name: "A", imageUrl: "https://via.placeholder.com/150?text=A" },
-            { name: "B", imageUrl: "https://via.placeholder.com/150?text=B" },
-            { name: "C", imageUrl: "https://via.placeholder.com/150?text=C" },
-            { name: "D", imageUrl: "https://via.placeholder.com/150?text=D" },
-            { name: "E", imageUrl: "https://via.placeholder.com/150?text=E" },
-            { name: "F", imageUrl: "https://via.placeholder.com/150?text=F" },
-            { name: "G", imageUrl: "https://via.placeholder.com/150?text=G" },
-            { name: "Ğ", imageUrl: "https://via.placeholder.com/150?text=Ğ" },
-            { name: "H", imageUrl: "https://via.placeholder.com/150?text=H" },
-			{ name: "I", imageUrl: "https://via.placeholder.com/150?text=I" },
-			{ name: "İ", imageUrl: "https://via.placeholder.com/150?text=İ" },
-            { name: "J", imageUrl: "https://via.placeholder.com/150?text=J" },
-            { name: "K", imageUrl: "https://via.placeholder.com/150?text=K" },
-			{ name: "L", imageUrl: "https://via.placeholder.com/150?text=L" },
-            { name: "M", imageUrl: "https://via.placeholder.com/150?text=M" },
-            { name: "N", imageUrl: "https://via.placeholder.com/150?text=N" },
-            { name: "O", imageUrl: "https://via.placeholder.com/150?text=O" },
-            { name: "Ö", imageUrl: "https://via.placeholder.com/150?text=Ö" },
-            { name: "P", imageUrl: "https://via.placeholder.com/150?text=P" },
-            { name: "R", imageUrl: "https://via.placeholder.com/150?text=R" },
-            { name: "S", imageUrl: "https://via.placeholder.com/150?text=S" },
-            { name: "T", imageUrl: "https://via.placeholder.com/150?text=T" },
-			{ name: "U", imageUrl: "https://via.placeholder.com/150?text=U" },
-            { name: "Ü", imageUrl: "https://via.placeholder.com/150?text=Ü" },
-            { name: "V", imageUrl: "https://via.placeholder.com/150?text=V" },
-			{ name: "Y", imageUrl: "https://via.placeholder.com/150?text=Y" },
-            { name: "Z", imageUrl: "https://via.placeholder.com/150?text=Z" },
-            { name: "X", imageUrl: "https://via.placeholder.com/150?text=X" },
-			{ name: "AA", imageUrl: "https://via.placeholder.com/150?text=AA" },
-            { name: "AB", imageUrl: "https://via.placeholder.com/150?text=AB" },
-            { name: "AC", imageUrl: "https://via.placeholder.com/150?text=AC" },
-            { name: "AD", imageUrl: "https://via.placeholder.com/150?text=AD" },
-            { name: "AE", imageUrl: "https://via.placeholder.com/150?text=AE" },
-            { name: "AF", imageUrl: "https://via.placeholder.com/150?text=AF" },
-            { name: "AG", imageUrl: "https://via.placeholder.com/150?text=AG" },
-            { name: "AĞ", imageUrl: "https://via.placeholder.com/150?text=AĞ" },
-            { name: "AH", imageUrl: "https://via.placeholder.com/150?text=AH" },
-			{ name: "AI", imageUrl: "https://via.placeholder.com/150?text=AI" },
-			{ name: "Aİ", imageUrl: "https://via.placeholder.com/150?text=Aİ" },
-            { name: "AJ", imageUrl: "https://via.placeholder.com/150?text=AJ" },
+            
+        { name: "1", imageUrl: "https://via.placeholder.com/150?text=1" },
+        { name: "2", imageUrl: "https://via.placeholder.com/150?text=2" },
+        { name: "3", imageUrl: "https://via.placeholder.com/150?text=3" },
+        { name: "4", imageUrl: "https://via.placeholder.com/150?text=4" },
+        { name: "5", imageUrl: "https://via.placeholder.com/150?text=5" },
+        { name: "6", imageUrl: "https://via.placeholder.com/150?text=6" },
+        { name: "7", imageUrl: "https://via.placeholder.com/150?text=7" },
+        { name: "8", imageUrl: "https://via.placeholder.com/150?text=8" },
+        { name: "9", imageUrl: "https://via.placeholder.com/150?text=9" },
+        { name: "10", imageUrl: "https://via.placeholder.com/150?text=10" },
+        { name: "11", imageUrl: "https://via.placeholder.com/150?text=11"},
+        { name: "12", imageUrl: "https://via.placeholder.com/150?text=12" },
+        { name: "13", imageUrl: "https://via.placeholder.com/150?text=13" },
+        { name: "14", imageUrl: "https://via.placeholder.com/150?text=14" },
+        { name: "15", imageUrl: "https://via.placeholder.com/150?text=15" },
+        { name: "16", imageUrl: "https://via.placeholder.com/150?text=16" },
+        { name: "17", imageUrl: "https://via.placeholder.com/150?text=17" },
+        { name: "18", imageUrl: "https://via.placeholder.com/150?text=18" },
+        { name: "19", imageUrl: "https://via.placeholder.com/150?text=19" },
+        { name: "20", imageUrl: "https://via.placeholder.com/150?text=20" },
+        { name: "21", imageUrl: "https://via.placeholder.com/150?text=21" },
+        { name: "22", imageUrl: "https://via.placeholder.com/150?text=22" },
+        { name: "23", imageUrl: "https://via.placeholder.com/150?text=23" },
+        { name: "24", imageUrl: "https://via.placeholder.com/150?text=24" },
+        { name: "25", imageUrl: "https://via.placeholder.com/150?text=25" },
+        { name: "26", imageUrl: "https://via.placeholder.com/150?text=26" },
+        { name: "27", imageUrl: "https://via.placeholder.com/150?text=27" },
+        { name: "28", imageUrl: "https://via.placeholder.com/150?text=28" },
+        { name: "29", imageUrl: "https://via.placeholder.com/150?text=29" },
+        { name: "30", imageUrl: "https://via.placeholder.com/150?text=30" },
+        { name: "31", imageUrl: "https://via.placeholder.com/150?text=31" },
+        { name: "32", imageUrl: "https://via.placeholder.com/150?text=32" },
+        { name: "33", imageUrl: "https://via.placeholder.com/150?text=33" },
+        { name: "34", imageUrl: "https://via.placeholder.com/150?text=34" },
+        { name: "35", imageUrl: "https://via.placeholder.com/150?text=35" },
+        { name: "36", imageUrl: "https://via.placeholder.com/150?text=36" },
+        { name: "37", imageUrl: "https://via.placeholder.com/150?text=37" },
+        { name: "38", imageUrl: "https://via.placeholder.com/150?text=38" },
+        { name: "39", imageUrl: "https://via.placeholder.com/150?text=39" },
+        { name: "40", imageUrl: "https://via.placeholder.com/150?text=40" },
+        { name: "41", imageUrl: "https://via.placeholder.com/150?text=41" },
+        { name: "42", imageUrl: "https://via.placeholder.com/150?text=42" },
+        { name: "43", imageUrl: "https://via.placeholder.com/150?text=43" },
+        { name: "44", imageUrl: "https://via.placeholder.com/150?text=44" },
+        { name: "45", imageUrl: "https://via.placeholder.com/150?text=45" },
+        { name: "46", imageUrl: "https://via.placeholder.com/150?text=46" },
+        { name: "47", imageUrl: "https://via.placeholder.com/150?text=47" },
+        { name: "48", imageUrl: "https://via.placeholder.com/150?text=48" }
+        
         ];
+    
         var usedANames = [];
         var usedBNames = [];
         var matchedList = [];
 
         // A profil resimlerini oluştur
-		var container = document.getElementById("container");
-		AProfiles.forEach(function(profile) {
-			var profileDiv = document.createElement("div");
-			profileDiv.classList.add("profile-item");
-			profileDiv.dataset.name = profile.name;
-			var img = document.createElement("img");
-			img.src = profile.imageUrl;
-			img.alt = profile.name;
-			img.classList.add("profile-image");
-			img.onclick = function() {
-				selectProfile(this);
-			};
-			profileDiv.appendChild(img);
-			container.appendChild(profileDiv);
-		});
+        var container = document.getElementById("container");
+        AProfiles.forEach(function(profile) {
+            var profileDiv = document.createElement("div");
+            profileDiv.classList.add("profile-item");
+            profileDiv.dataset.name = profile.name;
+            var img = document.createElement("img");
+            img.src = profile.imageUrl;
+            img.alt = profile.name;
+            img.classList.add("profile-image");
+            img.onclick = function() {
+                selectProfile(this);
+            };
+            profileDiv.appendChild(img);
+            container.appendChild(profileDiv);
+        });
 
         function selectProfile(element) {
             var selectedName = element.alt;
@@ -250,7 +268,7 @@
                 BProfiles.splice(randomIndex, 1);
                 usedBNames.push(matchedBProfile.name);
 
-                matchedList.push(selectedName + " <=> " + matchedBProfile.name);
+                matchedList.push(matchedBProfile.name+ " = " + selectedName);
 
                 if (BProfiles.length === 0) {
                     document.getElementById("showMatchedListButton").style.display = "block";
@@ -258,30 +276,34 @@
 
                 // Show celebration message
                 var celebrationMessage = document.getElementById("celebrationMessage");
-                celebrationMessage.textContent = "Tebrikler! " + selectedName + " ve " + matchedBProfile.name + " eşleştiniz.";
+                celebrationMessage.textContent = matchedBProfile.name  + ". kişiye " +  selectedName + " kitabını tavsiye ediyoruz!";
                 document.getElementById("celebrationModal").style.display = "block";
+               
             }
         }
+        var buttonClicked = false; // Butona henüz tıklanmadı
 
         // Tüm eşleşmeleri göster
         function showMatchedList() {
-            var matchedListContainer = document.getElementById("matchedListContainer");
-            var matchedListElement = document.getElementById("matchedList");
-
-            // Temizleme
-            matchedListElement.innerHTML = "";
-
-            // Eşleşmeleri listele
-            matchedList.forEach(function(item) {
-                var listItem = document.createElement("li");
-                listItem.textContent = item;
-                matchedListElement.appendChild(listItem);
+            var matchedListContainer = document.getElementById("matchedList");
+            matchedListContainer.innerHTML = "";
+            matchedList.forEach(function(match) {
+                var li = document.createElement("li");
+                li.textContent = match;
+                matchedListContainer.appendChild(li);
             });
-
-            matchedListContainer.style.display = "block";
+            document.getElementById("matchedListContainer").style.display = "block";
+            
+            // Butonu gizle sadece bir kez tıklandığında
+            if (!buttonClicked) {
+                buttonClicked = true;
+                document.getElementById("showMatchedListButton").style.display = "none";
+            }
         }
 
-        // Modal kapatma
+
+
+        // Modal kapatma fonksiyonu
         function closeCelebrationModal() {
             document.getElementById("celebrationModal").style.display = "none";
         }
