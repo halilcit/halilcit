@@ -2,7 +2,7 @@
 
 ## Hakkımda
 
-Network Operation Center Uzmanı olarak çalışmaktayım ve bu alanda yeteneklerimi güçlendiriyorum. İzmir Katip Çelebi Üniversitesi'nde Yazılım Mühendisliği Yüksek Lisans programını tamamladım. Network, veri analizi, yapay zeka, yazılım geliştirme ve en son teknolojilere olan ilgimle kariyer gelişimini sürdürüyorum. Eğitim ve iş deneyimlerim, teknolojiye olan tutkum ve profesyonel gelişimimi güçlendirmeye devam ediyor.
+Kıdemli Sistem ve Network Uzmanıyım. İzmir Katip Çelebi Üniversitesi'nde Yazılım Mühendisliği Yüksek Lisans mezunuyum. Yazılım geliştirme, Network ve en son teknolojilere odaklanarak kariyer yolculuğumu sürdürmekteyim. Aynı zamanda, Cisco teknolojilerine odaklanarak Network uzmanı olarak beceri kazandım. Bu alanda ve eğitim yolculuğunda edindiğim deneyimler, teknolojiye olan tutkumu ve profesyonel gelişimimi güçlendirdi.
 
 ## Eğitim
 
@@ -104,7 +104,7 @@ Network Operation Center Uzmanı olarak çalışmaktayım ve bu alanda yetenekle
 ## Millî Eğitim Bakanlığı
 - Bilgisayar İşletmenliği (Operatörlüğü)
 
-## simplersimpler
+## Simpler
 - Elementary Level English
 
 
